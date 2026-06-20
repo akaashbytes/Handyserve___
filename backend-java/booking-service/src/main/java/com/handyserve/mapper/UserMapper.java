@@ -1,0 +1,61 @@
+package com.handyserve.mapper;
+
+import com.handyserve.dto.UserDto;
+import com.handyserve.entity.User;
+
+public class UserMapper {
+    public static UserDto fromEntity(User user) {
+        if (user == null) return null;
+        return UserDto.builder()
+                .id(user.getId())
+                .name(user.getName())
+                .email(user.getEmail())
+                .phone(user.getPhone())
+                .role(user.getRole().name())
+                .avatar(user.getAvatar())
+                .profilePhoto(user.getProfilePhoto())
+                .verified(user.getVerified())
+                .blocked(user.getBlocked())
+                .state(user.getState())
+                .city(user.getCity())
+                .serviceCity(user.getServiceCity())
+                .serviceCityActive(user.getServiceCityActive())
+                .location(user.getLocation())
+                .displayAddress(user.getDisplayAddress())
+                .address(user.getAddress())
+                .pincode(user.getPincode())
+                .latitude(user.getLatitude())
+                .longitude(user.getLongitude())
+                .detectedCityLabel(user.getDetectedCityLabel())
+                .serviceType(user.getServiceType())
+                .experience(user.getExperience())
+                .timing(user.getTiming())
+                .radius(user.getRadius())
+                .pricing(user.getPricing())
+                .reliabilityScore(user.getReliabilityScore())
+                .averageRating(user.getAverageRating())
+                .reviews(user.getReviews())
+                .lowScoreDays(user.getLowScoreDays())
+                .available(user.getAvailable())
+                .idType(user.getIdType())
+                .idNumber(user.getIdNumber())
+                .aadhaarNumber(user.getCheckAadhaarNumber())
+                .aadhaarDoc(user.getAadhaarDoc())
+                .drivingLicenseNumber(user.getDrivingLicenseNumber())
+                .drivingLicenseDoc(user.getDrivingLicenseDoc())
+                .bankAccountNumber(user.getBankAccountNumber())
+                .bankIfscCode(user.getBankIfscCode())
+                .bankPassbookDoc(user.getBankPassbookDoc())
+                .upi(user.getUpi())
+                .bankName(user.getBankName())
+                .accountHolder(user.getAccountHolder())
+                .gender(user.getGender())
+                .age(user.getAge())
+                .emergencyContactName(user.getEmergencyContactName())
+                .emergencyContactPhone(user.getEmergencyContactPhone())
+                .emergencyContactRelationship(user.getEmergencyContactRelationship())
+                .createdAt(user.getCreatedAt())
+                .updatedAt(user.getUpdatedAt())
+                .build();
+    }
+}

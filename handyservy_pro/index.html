@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0" />
+    <meta name="description" 
+          content="HandyServe Pro - Home Services Booking" />
+    <title>HandyServe Pro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" 
+          href="https://fonts.googleapis.com" />
+    <link rel="preconnect" 
+          href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" 
+          rel="stylesheet" />
+
+    <!-- Theme initialization to prevent initial loading flash -->
+    <script>
+      (function() {
+        var storedTheme = localStorage.getItem('hs_theme');
+        var initialTheme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', initialTheme);
+        var bg = initialTheme === 'dark' ? '#0F1115' : '#F8F8F7';
+        var style = document.createElement('style');
+        style.id = 'theme-init-style';
+        style.innerHTML = 'html, body, #root { background-color: ' + bg + ' !important; }';
+        document.head.appendChild(style);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

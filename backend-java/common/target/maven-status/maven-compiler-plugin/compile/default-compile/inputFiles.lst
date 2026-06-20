@@ -1,0 +1,15 @@
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\AnalyticsDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\AuthResponse.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\BookingDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\ContactRequestDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\DisputeDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\LeaveRequestDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\LoginRequest.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\NotificationDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\PromoCodeDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\RegisterRequest.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\dto\UserDto.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\exception\AccessDeniedException.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\exception\DuplicateUserException.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\exception\ResourceNotFoundException.java
+R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\common\src\main\java\com\handyserve\exception\ValidationException.java

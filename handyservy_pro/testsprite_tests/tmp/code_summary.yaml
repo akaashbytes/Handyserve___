@@ -1,0 +1,188 @@
+version: "2"
+type: frontend
+tech_stack:
+  - React 18
+  - Vite
+  - React Router v6
+  - Leaflet (react-leaflet)
+  - Vanilla CSS
+  - Java Spring Boot (backend API on port 8081)
+  - Oracle XE (database)
+  - MongoDB (chat documents)
+  - JWT authentication
+features:
+  - name: User Authentication
+    description: Login and registration for customer, provider, and admin roles with JWT tokens
+    files:
+      - src/pages/auth/LoginPage.jsx
+      - src/pages/auth/RegisterPage.jsx
+      - src/components/context/AuthContext.jsx
+    endpoints:
+      - method: POST
+        path: /api/auth/login
+        description: Login with email and password, returns JWT token and user
+        auth_required: false
+        request_schema:
+          body:
+            email: string
+            password: string
+        response_schema:
+          "200": "{token, user}"
+          "401": Unauthorized
+      - method: POST
+        path: /api/auth/register
+        description: Register a new user (customer or provider) with optional profile photo
+        auth_required: false
+        request_schema:
+          body:
+            name: string
+            email: string
+            password: string
+            role: string
+            profilePhoto: string (base64, optional)
+        response_schema:
+          "200": "{token, user}"
+          "400": Validation error
+      - method: GET
+        path: /api/auth/me
+        description: Get current authenticated user details
+        auth_required: true
+        response_schema:
+          "200": User object
+          "401": Unauthorized
+    depends_on: []
+
+  - name: Booking Management
+    description: Create, view, and update booking status through multi-stage flow (Requested → Accepted → On_the_Way → Destination → Reached → Reached_Confirmed → Pending_Payment → Completed)
+    files:
+      - src/pages/customer/BookingsPage.jsx
+      - src/pages/customer/TrackingPage.jsx
+      - src/pages/provider/ProviderJobs.jsx
+      - src/components/context/AuthContext.jsx
+    endpoints:
+      - method: POST
+        path: /api/bookings
+        description: Create a new booking for a service provider
+        auth_required: true
+        request_schema:
+          body:
+            serviceProviderId: number
+            service: string
+            date: string
+            time: string
+            amount: number
+            options: array
+        response_schema:
+          "200": BookingDto
+          "400": Error
+      - method: GET
+        path: /api/bookings
+        description: Get all bookings for the current user
+        auth_required: true
+        response_schema:
+          "200": BookingDto[]
+      - method: PATCH
+        path: /api/bookings/{id}/status
+        description: Update booking status (provider or customer triggered transitions)
+        auth_required: true
+        request_schema:
+          query:
+            status: string (e.g. Accepted, On_the_Way, Destination, Reached, Reached_Confirmed, Pending_Payment, Completed, Cancelled)
+        response_schema:
+          "200": BookingDto
+          "400": Invalid transition
+    depends_on:
+      - User Authentication
+
+  - name: Customer Arrival Confirmation
+    description: After provider marks Reached, customer must confirm arrival on TrackingPage before provider can request payment
+    files:
+      - src/pages/customer/TrackingPage.jsx
+      - src/components/context/AuthContext.jsx
+    endpoints:
+      - method: PATCH
+        path: /api/bookings/{id}/status
+        description: Customer calls this with status=Reached_Confirmed to confirm provider arrival
+        auth_required: true
+        request_schema:
+          query:
+            status: Reached_Confirmed
+        response_schema:
+          "200": BookingDto
+          "400": Invalid transition
+    depends_on:
+      - Booking Management
+      - User Authentication
+
+  - name: Payment Processing
+    description: Customer pays for completed services via UPI, Card, or Wallet after provider requests payment
+    files:
+      - src/pages/customer/PaymentsPage.jsx
+      - src/components/context/AuthContext.jsx
+    endpoints:
+      - method: POST
+        path: /api/payments/initiate
+        description: Initiate a payment for a booking
+        auth_required: true
+        request_schema:
+          body:
+            bookingId: number
+        response_schema:
+          "200": "{orderId, amount, currency, invoiceId}"
+          "400": Error
+      - method: POST
+        path: /api/payments/verify
+        description: Verify and complete the payment, marks booking as Completed
+        auth_required: true
+        request_schema:
+          body:
+            bookingId: number
+            paymentId: string
+            signature: string
+        response_schema:
+          "200": "{verified: true, status: Completed}"
+          "400": Error
+      - method: GET
+        path: /api/payments/promo/{code}
+        description: Validate a promo code for discount
+        auth_required: true
+        response_schema:
+          "200": PromoCodeDto
+          "404": Invalid code
+    depends_on:
+      - Booking Management
+      - User Authentication
+
+  - name: Provider Discovery
+    description: Customers search and browse service providers by category, location, and availability
+    files:
+      - src/pages/customer/DiscoverPage.jsx
+      - src/components/context/AuthContext.jsx
+    endpoints:
+      - method: GET
+        path: /api/providers
+        description: Get list of all available service providers with optional filters
+        auth_required: false
+        response_schema:
+          "200": Provider[]
+      - method: GET
+        path: /api/providers/nearby
+        description: Get nearby providers based on coordinates
+        auth_required: false
+        request_schema:
+          query:
+            lat: number
+            lon: number
+            radius: number
+        response_schema:
+          "200": Provider[]
+    depends_on:
+      - User Authentication
+
+known_limitations:
+  - issue: Status transition from Reached to Reached_Confirmed requires backend to be restarted in Eclipse after code updates
+    location: backend-java/src/main/java/com/handyserve/entity/Booking.java
+    impact: Customer confirm arrival button fails if backend has cached old class files
+  - issue: Profile photo upload uses base64 encoding which may cause large payload sizes
+    location: src/pages/auth/RegisterPage.jsx
+    impact: Slow registration if photo is not compressed below 200x200

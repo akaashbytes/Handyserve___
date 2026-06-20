@@ -1,0 +1,877 @@
+[
+  {
+    "id": "TC001",
+    "title": "Customer can discover a provider and create a booking",
+    "description": "A customer can find a provider, open the booking flow, and create a booking that appears in their booking list.",
+    "category": "Booking Management",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the discover providers page"
+      },
+      {
+        "type": "action",
+        "description": "Use the provider discovery controls to find a suitable provider"
+      },
+      {
+        "type": "action",
+        "description": "Open the booking flow for the chosen provider"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the booking details with valid service, date, time, and amount values"
+      },
+      {
+        "type": "action",
+        "description": "Submit the booking form"
+      },
+      {
+        "type": "action",
+        "description": "Open the bookings page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new booking appears in the booking list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking is shown in a requested state"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Verify a payment and complete the booking",
+    "description": "A customer can verify a payment after initiation and the booking is marked as completed.",
+    "category": "Payment Processing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the login page"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer login credentials"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the payment page for a completed booking"
+      },
+      {
+        "type": "action",
+        "description": "Initiate payment for the booking"
+      },
+      {
+        "type": "action",
+        "description": "Complete the payment verification step"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the payment is verified"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking is marked completed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Customer can register and restore the session",
+    "description": "A new customer can register successfully, and the app restores the authenticated session on reload so booking actions can continue without signing in again.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer name field with a unique valid name"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with a unique valid email"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with a valid password"
+      },
+      {
+        "type": "action",
+        "description": "Select the customer role"
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form"
+      },
+      {
+        "type": "action",
+        "description": "Refresh the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authenticated session is restored"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Initiate payment for a completed booking",
+    "description": "A customer can initiate payment for a completed booking and see the payment order details returned in the UI.",
+    "category": "Payment Processing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the login page"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer login credentials"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the payment page for a completed booking"
+      },
+      {
+        "type": "action",
+        "description": "Initiate payment for the booking"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify payment order details are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Provider can log in and restore the session",
+    "description": "A provider can log in successfully, and the authenticated session remains available after refresh so provider actions do not require re-login.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Refresh the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authenticated session is restored"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Provider can accept and advance a booking",
+    "description": "A provider can view pending jobs, accept a request, and advance the booking through the on-the-way and reached states.",
+    "category": "Booking Management",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the provider email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the provider password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the provider jobs page"
+      },
+      {
+        "type": "action",
+        "description": "Open a requested booking"
+      },
+      {
+        "type": "action",
+        "description": "Accept the booking request"
+      },
+      {
+        "type": "action",
+        "description": "Mark the booking as on the way"
+      },
+      {
+        "type": "action",
+        "description": "Mark the booking as reached"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking is shown in the reached state"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the job remains available in the provider workflow"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Create a booking from a discovered provider",
+    "description": "A customer can discover a provider and create a booking that is available in the booking list.",
+    "category": "Provider Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the discovery page"
+      },
+      {
+        "type": "action",
+        "description": "Select an available provider"
+      },
+      {
+        "type": "action",
+        "description": "Start a new booking request"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the required booking details"
+      },
+      {
+        "type": "action",
+        "description": "Submit the booking request"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking is created"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking appears in the booking list"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Customer can track a booking through arrival confirmation",
+    "description": "A customer can open a booking in tracking view and confirm arrival after the provider marks the booking as reached.",
+    "category": "Customer Arrival Confirmation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the bookings page"
+      },
+      {
+        "type": "action",
+        "description": "Open the tracking view for an active booking"
+      },
+      {
+        "type": "action",
+        "description": "Confirm provider arrival on the tracking page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking arrival confirmation is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking progresses to the arrival-confirmed state"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Restore a signed-in session after refresh",
+    "description": "An authenticated user can refresh the app and continue using booking or payment features without signing in again.",
+    "category": "Payment Processing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the login page"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Refresh the app"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the session is restored"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify booking or payment actions remain available"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Customer can pay with a promo code and complete the booking",
+    "description": "A customer can initiate payment with a promo code, verify the discounted amount, and finish with the booking marked completed.",
+    "category": "Booking Management",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the payments page for an arrived booking"
+      },
+      {
+        "type": "action",
+        "description": "Enter a valid promo code"
+      },
+      {
+        "type": "action",
+        "description": "Initiate payment"
+      },
+      {
+        "type": "action",
+        "description": "Verify payment"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the discounted payment is reflected"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking is marked completed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Browse providers on the discovery page",
+    "description": "A customer can open the discovery page and see available service providers listed for browsing.",
+    "category": "Provider Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the discovery page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify service providers are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Find nearby providers from a location search",
+    "description": "A customer can search nearby providers using valid coordinates and see nearby providers displayed.",
+    "category": "Provider Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the discovery page"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a valid latitude"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a valid longitude"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a valid search radius"
+      },
+      {
+        "type": "action",
+        "description": "Submit the nearby provider search"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify nearby providers are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Filter providers by category and location",
+    "description": "A customer can narrow the provider list using category and location filters and see matching providers.",
+    "category": "Provider Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the discovery page"
+      },
+      {
+        "type": "action",
+        "description": "Select a service category"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a location filter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the provider list updates to matching providers"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Apply a valid promo code during payment",
+    "description": "A customer can apply a valid promo code on the payment page and see the discounted payment details.",
+    "category": "Payment Processing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the login page"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer login credentials"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the payment page for a completed booking"
+      },
+      {
+        "type": "action",
+        "description": "Enter a valid promo code"
+      },
+      {
+        "type": "action",
+        "description": "Apply the promo code"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify discounted payment details are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Customer can browse providers by category and location",
+    "description": "A customer can filter the provider list by category and location and see matching providers update on the page.",
+    "category": "Booking Management",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the discover providers page"
+      },
+      {
+        "type": "action",
+        "description": "Select a category filter"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a location filter with a valid location"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the provider results are filtered"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify matching providers are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Customer can cancel an allowed booking",
+    "description": "A customer can cancel a booking only when cancellation is allowed, and the booking updates to a cancelled state.",
+    "category": "Booking Management",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the bookings page"
+      },
+      {
+        "type": "action",
+        "description": "Open a booking that is still eligible for cancellation"
+      },
+      {
+        "type": "action",
+        "description": "Cancel the booking"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking is shown as cancelled"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking is removed from active booking progress"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC017",
+    "title": "Customer can register with a profile photo",
+    "description": "A customer can complete registration with an optional profile photo and receive an authenticated account.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer name field with a unique valid name"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with a unique valid email"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with a valid password"
+      },
+      {
+        "type": "action",
+        "description": "Select the customer role"
+      },
+      {
+        "type": "action",
+        "description": "Attach a valid profile photo"
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the account is created successfully"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authenticated user profile is available"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC018",
+    "title": "Customer sees promo code validation feedback",
+    "description": "Entering an invalid promo code during payment shows validation feedback and does not apply a discount.",
+    "category": "Booking Management",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the payments page for an eligible booking"
+      },
+      {
+        "type": "action",
+        "description": "Enter an invalid promo code"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to apply the promo code"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify promo code validation feedback is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no discount is applied"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC019",
+    "title": "User sees validation feedback for incomplete registration",
+    "description": "Submitting registration with missing required details shows validation feedback and prevents account creation.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form with required fields left empty"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation errors are visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the registration does not complete"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC020",
+    "title": "Show feedback for an invalid promo code",
+    "description": "A customer sees an error state when applying an invalid promo code during payment.",
+    "category": "Payment Processing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the login page"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the customer login credentials"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open the payment page for a completed booking"
+      },
+      {
+        "type": "action",
+        "description": "Enter an invalid promo code"
+      },
+      {
+        "type": "action",
+        "description": "Apply the promo code"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a promo code error message is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC021",
+    "title": "User sees feedback for invalid login credentials",
+    "description": "Entering invalid login credentials shows an authentication error and does not sign the user in.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with an invalid email"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with an invalid password"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an authentication error is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user remains logged out"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC022",
+    "title": "Show validation for incomplete nearby search fields",
+    "description": "A customer sees validation feedback when trying to search nearby providers without the required location details.",
+    "category": "Provider Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the discovery page"
+      },
+      {
+        "type": "action",
+        "description": "Leave the nearby search coordinates empty"
+      },
+      {
+        "type": "action",
+        "description": "Submit the nearby provider search"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a location validation message is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC023",
+    "title": "User cannot complete a booking too early",
+    "description": "Attempting to move a booking to completed before the required prior statuses shows an invalid transition and leaves the booking unchanged.",
+    "category": "Booking Management",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the provider email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the provider password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Open a booking that has not reached the required stage"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to mark the booking as completed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an invalid transition message is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the booking status does not change"
+      }
+    ],
+    "priority": "Low"
+  }
+]

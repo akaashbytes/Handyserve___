@@ -1,0 +1,24 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5173",
+  "backendAuthType": "public",
+  "executionArgs": {
+    "projectName": "handyservy_pro",
+    "projectPath": "R:\\PROJECT\\FSJ\\raj\\handyservy_pro\\handyservy_pro\\handyservy_pro",
+    "testIds": [
+      "TC001",
+      "TC002",
+      "TC005",
+      "TC006",
+      "TC008"
+    ],
+    "additionalInstruction": "Login credentials: customer email=arjun@email.com password=customer123, provider email=ravi@email.com password=provider123. Backend API is running at http://localhost:8081. Frontend dev server at http://localhost:5173.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-yJedNg4DSCZ9qr258UFlCQW5qd-q2GPFtPXs5ppNemRCHSrqGDIUKDZIK1rWugi2Rm9f1iBqbRIJvGZa09sd5hQSnh6SgPRCxawBM-PxIFJz3Mr03jQs5Yn6Z9HvfhIxQlI"
+    }
+  },
+  "serverPort": 59205
+}

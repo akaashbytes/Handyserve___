@@ -1,0 +1,35 @@
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.0)
+
+2026-06-15T13:59:42.030+05:30  INFO 41448 --- [           main] com.handyserve.AuthApplication           : Starting AuthApplication v1.0.0 using Java 17.0.12 with PID 41448 (R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java\auth-service\target\auth-service-1.0.0.jar started by akaash in R:\PROJECT\FSJ\handyservy_pro\handyservy_pro\handyservy_pro\handyservy_pro\backend-java)
+2026-06-15T13:59:42.044+05:30  INFO 41448 --- [           main] com.handyserve.AuthApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-06-15T13:59:45.337+05:30  INFO 41448 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15T13:59:45.494+05:30  INFO 41448 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2026-06-15T13:59:48.257+05:30  INFO 41448 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-06-15T13:59:48.290+05:30  INFO 41448 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-15T13:59:48.292+05:30  INFO 41448 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-06-15T13:59:48.540+05:30  INFO 41448 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-15T13:59:48.547+05:30  INFO 41448 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6315 ms
+2026-06-15T13:59:50.309+05:30  INFO 41448 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15T13:59:50.791+05:30  INFO 41448 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-06-15T13:59:50.897+05:30  INFO 41448 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-15T13:59:51.665+05:30  INFO 41448 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15T13:59:51.728+05:30  INFO 41448 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-15T13:59:52.362+05:30  INFO 41448 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@4c0930c4
+2026-06-15T13:59:52.367+05:30  INFO 41448 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-15T13:59:55.344+05:30  INFO 41448 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15T13:59:55.670+05:30  INFO 41448 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15T13:59:56.973+05:30  INFO 41448 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-15T13:59:59.868+05:30  WARN 41448 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15T14:00:00.026+05:30  INFO 41448 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-06-15T14:00:01.078+05:30  INFO 41448 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-06-15T14:00:01.234+05:30  INFO 41448 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@366b82ec, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f4d04be, org.springframework.security.web.context.SecurityContextHolderFilter@25c8d646, org.springframework.security.web.header.HeaderWriterFilter@349f3582, org.springframework.web.filter.CorsFilter@4968eb3f, org.springframework.security.web.authentication.logout.LogoutFilter@af88ccf, com.handyserve.apikey.ApiKeyFilter@22a9fa23, com.handyserve.security.JwtAuthenticationFilter@7782b3c5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3bdb3f28, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65782175, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b134d4f, org.springframework.security.web.session.SessionManagementFilter@62aea363, org.springframework.security.web.access.ExceptionTranslationFilter@258c177a, org.springframework.security.web.access.intercept.AuthorizationFilter@3bd42f5b]
+2026-06-15T14:00:02.238+05:30  INFO 41448 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2026-06-15T14:00:02.271+05:30  INFO 41448 --- [           main] com.handyserve.AuthApplication           : Started AuthApplication in 21.546 seconds (process running for 22.768)
+2026-06-15T14:00:03.154+05:30  INFO 41448 --- [           main] com.handyserve.apikey.ApiKeySeeder       : [API-KEY-SEEDER] ? Verified/patched 63 existing API keys in HS_API_KEYS

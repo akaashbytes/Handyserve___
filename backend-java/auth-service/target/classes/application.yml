@@ -1,0 +1,44 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: HANDYSERVE
+    password: handyserve123
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.community.dialect.OracleLegacyDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.community.dialect.OracleLegacyDialect
+        default_schema: HANDYSERVE
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+      - org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ramaiahakaash51@gmail.com
+    password: adkglmtgcecdbxpt
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+jwt:
+  secret: handyserve_super_secret_key_for_jwt_minimum_256_bits_change_in_prod
+  expiration-ms: 900000
+  refresh-expiration-ms: 604800000
+
+app:
+  backend-url: ${APP_BACKEND_URL:http://10.1.0.223:8081}
+  client-origin: ${APP_CLIENT_ORIGIN:http://10.1.0.223:5173}
